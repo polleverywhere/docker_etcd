@@ -10,8 +10,10 @@ RUN opkg-install wget \
   && mv /etcd-$ETCD_VERSION-linux-amd64/etcd /etcd-$ETCD_VERSION-linux-amd64/etcdctl / \
   && rm -rf /etcd-$ETCD_VERSION-linux-amd64 \
   && rm -rf /etcd.tar.gz \
-  && opkg-cl remove wget libpcre libopenssl zlib 
+  && opkg-cl remove wget libpcre libopenssl zlib
 
 VOLUME ["/etcddata"]
+
+EXPOSE 4001 7001
 
 CMD ["/etcd"]
